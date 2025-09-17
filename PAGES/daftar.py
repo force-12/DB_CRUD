@@ -27,7 +27,7 @@ if st.button("Daftar"):
                 )
                 conn.commit()
                 st.success("Registrasi berhasil! Silakan login.")
-                st.switch_page("login")
+                st.switch_page("login.py")
         except Exception as e:
             st.error(f"Gagal registrasi: {e}")
         finally:
@@ -35,4 +35,4 @@ if st.button("Daftar"):
             conn.close()
 
 if st.button("Kembali ke Login"):
-    st.switch_page("login")
+    st.switch_page("login.py")
