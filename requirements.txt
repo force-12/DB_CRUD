@@ -4,3 +4,4 @@ sqlalchemy
 pymysql
 psycopg2-binary
 st-pages
+streamlit-extras
