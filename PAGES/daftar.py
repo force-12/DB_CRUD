@@ -35,4 +35,4 @@ if st.button("Daftar"):
             conn.close()
 
 if st.button("Kembali ke Login"):
-    st.switch_page("login.py")
+    st.switch_page("login")
