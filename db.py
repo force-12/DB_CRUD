@@ -41,3 +41,11 @@ def delete_siswa(NIM):
          cursor.execute("DELETE FROM siswa WHERE NIM=%s", (NIM,))
     conn.commit()
     conn.close()
+
+def search_siswa(NIM):
+    conn = get_connection()
+    with conn.cursor() as cursor:
+        cursor.execute("SELECT * FROM siswa WHERE NIM=%s", (NIM,))
+        result = cursor.fetchall()
+    conn.close()
+    return result

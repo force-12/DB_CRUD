@@ -17,7 +17,7 @@ if st.button("Logout"):
     st.switch_page("login.py")
 
 st.title("CRUD SISWA")
-menu = st.sidebar.selectbox("Menu", ["Tambah", "Lihat", "Ubah", "Hapus"])
+menu = st.sidebar.selectbox("Menu", ["Tambah", "Lihat", "Ubah", "Hapus", "Cari Data"])
 
 if menu == "Tambah":
     st.subheader("Tambah Data Siswa")
@@ -58,3 +58,14 @@ elif menu == "Hapus":
     if st.button("Hapus"):
         db.delete_siswa(NIM)
         st.success("Data siswa berhasil dihapus!")
+
+elif menu == "Cari Data":
+    st.subheader("Cari Data Siswa Berdasarkan NIM")
+    nim_cari = st.text_input("Masukkan NIM yang ingin dicari")
+    if st.button("Cari"):
+        hasil = db.search_siswa(nim_cari)    
+        if hasil:
+            st.write("Data ditemukan:")
+            st.json(hasil)
+        else:
+            st.warning("Data dengan NIM tersebut tidak ditemukan.")
