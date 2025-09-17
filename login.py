@@ -34,4 +34,4 @@ if st.button("Login"):
             conn.close()
 
 if st.button("Daftar jika belum ada akun"):
-    st.switch_page("pages/daftar.py")
+    st.switch_page("daftar")
