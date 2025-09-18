@@ -1,5 +1,6 @@
 import streamlit as st
 from db2 import get_connection
+from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(page_title="Login Page", page_icon="🔐")
 st.title("Login Page")
@@ -24,7 +25,7 @@ if st.button("Login"):
             if result:
                 st.session_state['logged_in'] = True
                 st.success("Login berhasil!")
-                st.switch_page("pages/app.py")
+                switch_page("app")   # cukup nama file
             else:
                 st.error("Username / Password salah.")
         except Exception as e:
@@ -34,4 +35,4 @@ if st.button("Login"):
             conn.close()
 
 if st.button("Daftar jika belum ada akun"):
-    st.switch_page("pages/daftar.py")
+    switch_page("daftar")

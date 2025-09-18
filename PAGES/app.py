@@ -1,13 +1,13 @@
 import streamlit as st
 import pandas as pd
 from db2 import create_siswa, read_siswa, update_siswa, delete_siswa, search_siswa
+from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(page_title="Main App", page_icon="📊")
 
-# cek session login
 if not st.session_state.get('logged_in', False):
     st.error("Please login first!")
-    st.stop()  # kalau belum login, stop script
+    st.stop()
 
 st.title("CRUD SISWA")
 
@@ -58,3 +58,12 @@ elif menu == "Cari Data":
             st.dataframe(df)
         else:
             st.warning("Data dengan NIM tersebut tidak ditemukan.")
+
+# =========================
+# Tombol Logout di bawah
+# =========================
+st.markdown("---")
+if st.button("🚪 Logout"):
+    st.session_state['logged_in'] = False
+    st.success("Berhasil logout!")
+    switch_page("login")   # balik ke login

@@ -1,6 +1,6 @@
-#daftar
 import streamlit as st
 from db2 import get_connection
+from streamlit_extras.switch_page_button import switch_page
 
 st.set_page_config(page_title="Register Page", page_icon="📝")
 st.title("Register Page")
@@ -27,7 +27,7 @@ if st.button("Daftar"):
                 )
                 conn.commit()
                 st.success("Registrasi berhasil! Silakan login.")
-                st.switch_page("login")
+                switch_page("login")
         except Exception as e:
             st.error(f"Gagal registrasi: {e}")
         finally:
@@ -35,4 +35,4 @@ if st.button("Daftar"):
             conn.close()
 
 if st.button("Kembali ke Login"):
-    st.switch_page("login.py")
+    switch_page("login")
