@@ -1,7 +1,7 @@
 import streamlit as st
 from db2 import get_connection
-from app import show_app
-from daftar import show_register
+from pages.app import show_app
+from pages.daftar import show_register
 
 st.set_page_config(page_title="Login Page", page_icon="🔐")
 
